@@ -18,10 +18,32 @@ describe('Constructor', function () {
       var constructed = new Constructor();
       expect(constructed.publicVariable).to.equal('foo');
     });
-    it('should accept an arguent', function () {
-      var constructed = new Constructor('bar');
-      expect(constructed.publicVariable).to.equal('bar');
-    })
+    it('should accept an argument', function () {
+      var barConstructed = new Constructor('bar'),
+          bazConstructed = new Constructor('baz');
+
+      expect(barConstructed.publicVariable).to.equal('bar');
+      expect(bazConstructed.publicVariable).to.equal('baz');
+    });
+    it('should have a publicBoolean', function (){
+      var constructed = new Constructor();
+      expect(constructed.publicBoolean).to.exist();
+    })  });
+
+
+
+  describe('#publicMethod', function () {
+    it('should return "Hello World"', function () {
+      var constructed = new Constructor();
+      expect(constructed.publicMethod()).to.equal('Hello World');
+      expect(constructed.hasOwnProperty('publicMethod')).to.be.false;
+    });
+  });
+  describe('#checkPrivateBoolean', function () {
+    it('should return true or false', function () {
+      var constructed = new Constructor();
+      expect(constructed.publicBoolean).to.exist();
+    });
   });
 });
 
