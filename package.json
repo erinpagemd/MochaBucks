@@ -3,15 +3,18 @@
   "version": "1.0.0",
   "description": "Learning testing with Mocha and Chai",
   "main": "app.js",
-  dependencies: {
+  "dependencies": {
   },
-  devDependencies: {
+  "devDependencies": {
     "chai": "^1.10.0",
     "mocha": "^2.1.0"
-  }
-  "scripts": {
-    "test": "mocha"
   },
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha",
+    "lint": "npm run lint-json && npm run lint-js && npm run lint-js-style",
+    "lint-json": "jsonlint -q package.json .jscsrc .jshintrc",
+    "lint-js": "jshint .",
+    "lint-js-style": "jscs ."  },
   "repository": {
     "type": "git",
     "url": "https://github.com/erinpagemd/MochaBucks.git"
